@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Conciencia Historica</title>
+</head>
+<body>
+ <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #553D61;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        .galeria-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* --- ESTILO DE LAS TARJETAS --- */
+        .tarjeta {
+            background-color: blueviolet;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(110, 142, 251, 0.2);
+        }
+
+        .tarjeta img {
+            width: 100%; /* Ajustado al 100% para mejor visibilidad */
+            height: 180px; 
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+            cursor: zoom-in; /* Cursor de lupa */
+            transition: opacity 0.3s;
+        }
+
+        .tarjeta img:hover {
+            opacity: 0.9;
+        }
+
+        .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+
+        .info p {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        /* --- ESTILOS PARA EL ZOOM (OVERLAY) --- */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9); /* Fondo un poco más oscuro para mate */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        #overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        #overlay.active {
+            display: flex;
+        }
+
+        #overlay.active img {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" onclick="cerrarZoom()">
+        <img id="img-zoom" src="" alt="Vista ampliada">
+    </div>
+
+    <div class="galeria-container">
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Crisis, Guerra y Paz</h3>
+                <p>Analizamos los grandes desastres del siglo XX, como la caída económica de 1929 y la violencia de las guerras mundiales. Aprendimos que, tras vivir bajo gobiernos que controlaban todo por la fuerza, surgió la necesidad de promover una Cultura de Paz basada en el respeto, el diálogo y los derechos humanos para evitar que se repitan esas tragedias.</p>
+                <img src="IMAGENES/his1.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>El concepto del Tercer Mundo</h3>
+                <p>En esta actividad analizamos cómo se dividió el planeta durante la Guerra Fría. Vimos que mientras las potencias peleaban, surgió un grupo de países (el Tercer Mundo) que decidió no unirse a ningún bando. Aprendimos que su objetivo era ser independientes, ayudarse entre ellos y mejorar sus economías sin depender de los países ricos del norte.</p>
+                <img src="IMAGENES/his2.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>El fin de una era (La URSS)</h3>
+                <p>Aquí revisamos por qué se desintegró la Unión Soviética en 1991 y qué pasó después. Aprendimos que la falta de dinero y el deseo de libertad de varios países causaron su caída. También vimos cómo el mundo cambió hacia el capitalismo y el modelo neoliberal, con nuevos líderes como Vladimir Putin tomando el control en Rusia.</p>
+                <img src="IMAGENES/his3.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>El crecimiento de Estados Unidos</h3>
+                <p>En esta hoja trazamos una línea de tiempo sobre cómo Estados Unidos se convirtió en una potencia mundial a principios del siglo XX. Aprendimos hitos clave como la construcción del Canal de Panamá para el comercio y cómo sus victorias en guerras y su gran cantidad de fábricas los pusieron a la cabeza de la economía global.</p>
+                <img src="IMAGENES/his4.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Modelos económicos: Hacia afuera vs. Hacia adentro</h3>
+                <p>En este ejercicio comparamos dos formas de manejar un país: vender materias primas al extranjero o fabricar todo dentro de casa (Sustitución de Importaciones). Aprendimos que producir tus propias cosas ayuda a generar empleos y a no depender tanto de lo que pasa en otros países, especialmente durante las crisis internacionales.</p>
+                <img src="IMAGENES/his5.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Evolución de la economía mexicana</h3>
+                <p>Finalmente, repasamos las etapas de la economía en México, desde el periodo de crecimiento con Lázaro Cárdenas hasta la llegada del modelo neoliberal con Salinas de Gortari. Aprendimos cómo el país pasó de proteger su propia industria a abrirse al comercio mundial con tratados como el TLC (Tratado de Libre Comercio).</p>
+                <img src="IMAGENES/his6.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const imgZoom = document.getElementById('img-zoom');
+
+        function abrirZoom(src) {
+            imgZoom.src = src;
+            overlay.classList.add('active');
+        }
+
+        function cerrarZoom() {
+            overlay.classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Temas selectos de matemáticas II</title>
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #553D61;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        .galeria-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* --- ESTILO DE LAS TARJETAS --- */
+        .tarjeta {
+            background-color: blueviolet;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(110, 142, 251, 0.2);
+        }
+
+        .tarjeta img {
+            width: 100%; /* Ajustado al 100% para mejor visibilidad */
+            height: 180px; 
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+            cursor: zoom-in; /* Cursor de lupa */
+            transition: opacity 0.3s;
+        }
+
+        .tarjeta img:hover {
+            opacity: 0.9;
+        }
+
+        .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+
+        .info p {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        /* --- ESTILOS PARA EL ZOOM (OVERLAY) --- */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9); /* Fondo un poco más oscuro para mate */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        #overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        #overlay.active {
+            display: flex;
+        }
+
+        #overlay.active img {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" onclick="cerrarZoom()">
+        <img id="img-zoom" src="" alt="Vista ampliada">
+    </div>
+
+    <div class="galeria-container">
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Composición de funciones</h3>
+                <p>Aprendimos que la composición de funciones consiste en combinar dos funciones de manera que la salida de una funcione como la entrada de otra.</p>
+                <img src="IMAGENES/mat1.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>¿Cómo se realizan?</h3>
+                <p>Cuando se componen más de dos funciones, el proceso se realiza de adentro hacia afuera aplicando una función a la vez.</p>
+                <img src="IMAGENES/mat2.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Aproximación del área total</h3>
+                <p>Se realizó una aproximación del área bajo una curva mediante el método de sumas de Riemann, lo cual consiste en dividir un intervalo definido en múltiples rectángulos para sumar sus áreas individuales; este proceso demuestra de forma práctica cómo, al aumentar la cantidad de divisiones y reducir su ancho, la suma resultante se vuelve más precisa hasta converger en el valor exacto de la integral definida de la función.</p>
+                <img src="IMAGENES/mat3.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Rectángulos por arriba y por abajo</h3>
+                <p>Dibujamos rectángulos que sobresalen y otros que quedan por debajo para encontrar el área verdadera en medio de ambas sumas.</p>
+                <img src="IMAGENES/mat4.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Sucesiones Aritméticas</h3>
+                <p>Trabajamos con listas que crecen sumando la misma cantidad. Aprendimos fórmulas para encontrar cualquier posición rápido.</p>
+                <img src="IMAGENES/mat5.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Sucesiones Geométricas</h3>
+                <p>Analizamos series que se obtienen multiplicando por una cifra fija. Crecen mucho más rápido que las aritméticas.</p>
+                <img src="IMAGENES/mat6.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const imgZoom = document.getElementById('img-zoom');
+
+        function abrirZoom(src) {
+            imgZoom.src = src;
+            overlay.classList.add('active');
+        }
+
+        function cerrarZoom() {
+            overlay.classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>

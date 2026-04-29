@@ -1,0 +1,67 @@
+/* estilos.css */
+
+:root {
+    --color-primario: #2C1047;
+    --color-secundario: #3F2E7D;
+    --color-acento: #5A44B3; /* Un morado más claro para el hover */
+    --blanco: #ffffff;
+    --sombra: rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para la navegación (los cuadritos) */
+nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* Espacio entre los cuadritos */
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+nav a {
+    background-color: var(--color-secundario);
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 8px; /* Bordes redondeados para estilo moderno */
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    
+    /* Esto hace que parezcan cuadritos/botones */
+    border: 2px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 4px 6px var(--sombra);
+    text-transform: uppercase; /* Opcional: para darle un toque más formal */
+    letter-spacing: 0.5px;
+}
+
+/* Efecto cuando pasas el mouse por encima */
+nav a:hover {
+    background-color: var(--blanco);
+    color: var(--color-primario);
+    transform: translateY(-3px); /* Se eleva un poco */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border-color: var(--color-secundario);
+}
+
+/* Efecto cuando se hace clic */
+nav a:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px var(--sombra);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+    nav ul {
+        gap: 8px;
+    }
+    
+    nav a {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+        flex: 1 1 40%; /* Hace que se acomoden de dos en dos en pantallas pequeñas */
+        text-align: center;
+    }
+}
