@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Escolar | Bachillerato</title>
+    <style>
+        :root {
+            --color-primario: #2C1047;
+            --color-secundario: #3F2E7D;
+            --fondo: #f4f7f6;
+            --texto: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--fondo);
+            color: var(--texto);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: var(--color-primario);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: var(--color-secundario);
+            border-color: white;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .bienvenida {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        .hero-img {
+            max-width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        /* DISEÑO UNIFORME PARA LAS TARJETAS */
+        .asignatura-card {
+            display: flex; /* Alinea texto e imagen de lado a lado */
+            align-items: center;
+            gap: 20px;
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border-left: 8px solid var(--color-secundario);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .asignatura-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-text {
+            flex: 2; /* El texto toma más espacio */
+        }
+
+        .card-image {
+            flex: 1; /* La imagen toma menos espacio */
+            text-align: center;
+        }
+
+        .card-image img {
+            width: 100%;
+            max-width: 180px;
+            height: 120px;
+            object-fit: cover; /* Ajusta la imagen sin deformarla */
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .btn-ver-mas {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--color-secundario);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+        }
+
+        .btn-ver-mas:hover {
+            background-color: var(--color-primario);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--color-primario);
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Responsivo: Si la pantalla es chica, la imagen se pone arriba */
+        @media (max-width: 600px) {
+            .asignatura-card {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .card-image img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Portafolio Escolar Académico</h1>
+        <p>Bachillerato - Semestre Actual</p>
+        <nav>
+            <ul>
+                <li><a href="Capacitacion en informatica.html">Informática</a></li>
+                <li><a href="Temas selectos de matematicas II.html">Matemáticas II</a></li>
+                <li><a href="Conciencia Historica.html">Conciencia Histórica</a></li>
+                <li><a href="Organismos Estructurales.html">Organismos Estructurales</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bienvenida">
+            <h2>Bienvenido a mi trayectoria académica</h2>
+            <p>Explora las actividades desarrolladas en cada área de estudio.</p>
+            <img src="IMAGENES/cobach.png.png" alt="Logo de la Institución" class="hero-img">
+        </section>
+
+        <article class="asignatura-card">
+            <div class="card-text">
+                <h3>Capacitación en Informática</h3>
+                <p>Desarrollo de páginas web, programación básica y gestión de comunidades virtuales.</p>
+                <a href="Capacitacion en informatica.html" class="btn-ver-mas" target="_blank">Ver sitio completo →</a>
+            </div>
+            <div class="card-image">
+                <img src="IMAGENES/inf4.jpg" alt="Imagen Informática">
+            </div>
+        </article>
+
+        <article class="asignatura-card">
+            <div class="card-text">
+                <h3>Temas Selectos de Matemáticas II</h3>
+                <p>Composición de funciones, fractales, sucesiones y sumas de Riemann.</p>
+                <a href="Temas selectos de matematicas II.html" class="btn-ver-mas" target="_blank">Ver sitio completo →</a>
+            </div>
+            <div class="card-image">
+                <img src="IMAGENES/mat.jpg" alt="Imagen Matemáticas">
+            </div>
+        </article>
+
+        <article class="asignatura-card">
+            <div class="card-text">
+                <h3>Conciencia Histórica</h3>
+                <p>Análisis crítico de modelos económicos y procesos políticos que definen al México actual.</p>
+                <a href="Conciencia Historica.html" class="btn-ver-mas" target="_blank">Ver sitio completo →</a>
+            </div>
+            <div class="card-image">
+                <img src="IMAGENES/his.png" alt="Imagen Historia">
+            </div>
+        </article>
+
+        <article class="asignatura-card">
+            <div class="card-text">
+                <h3>Organismos Estructurales</h3>
+                <p>Estudio de la composición biológica, genética, ADN y procesos metabólicos fundamentales.</p>
+                <a href="Organismos Estructurales.html" class="btn-ver-mas" target="_blank">Ver sitio completo →</a>
+            </div>
+            <div class="card-image">
+                <img src="IMAGENES/bio.jpg" alt="Imagen Biología">
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Sosa Olaves y Mendoza Cota</p>
+        <p>Portafolio Estudiantil | Desarrollado con HTML y CSS</p>
+    </footer>
+
+</body>
+</html>

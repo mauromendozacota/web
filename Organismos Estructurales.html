@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Organismos Estructurales</title>
+</head>
+<body>
+	 <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #553D61;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        .galeria-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* --- ESTILO DE LAS TARJETAS --- */
+        .tarjeta {
+            background-color: blueviolet;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(110, 142, 251, 0.2);
+        }
+
+        .tarjeta img {
+            width: 100%; /* Ajustado al 100% para mejor visibilidad */
+            height: 180px; 
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+            cursor: zoom-in; /* Cursor de lupa */
+            transition: opacity 0.3s;
+        }
+
+        .tarjeta img:hover {
+            opacity: 0.9;
+        }
+
+        .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+
+        .info p {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        /* --- ESTILOS PARA EL ZOOM (OVERLAY) --- */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9); /* Fondo un poco más oscuro para mate */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        #overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        #overlay.active {
+            display: flex;
+        }
+
+        #overlay.active img {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" onclick="cerrarZoom()">
+        <img id="img-zoom" src="" alt="Vista ampliada">
+    </div>
+
+    <div class="galeria-container">
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Glucólisis y Ciclo de Krebs</h3>
+                <p>Analizamos las primeras etapas de la respiración aeróbica. Aprendimos cómo la glucosa se rompe en el citoplasma y luego entra a la matriz de la mitocondria para producir moléculas que transportan energía.</p>
+                <img src="IMAGENES/o1.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Cadena de Transporte de Electrones</h3>
+                <p>Dibujamos el esquema de los complejos donde se mueven los electrones para fabricar mucho ATP. Aprendimos que el oxígeno es el que recibe estos electrones al final para formar agua y que todo el sistema siga funcionando.</p>
+                <img src="IMAGENES/o2.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Fermentación Láctica y Alcohólica</h3>
+                <p>Estudiamos cómo se obtiene energía sin usar oxígeno. Aprendimos que cuando los músculos se quedan sin aire producen lactato, mientras que las levaduras producen alcohol y gas (CO2), permitiendo que la célula sobreviva.</p>
+                <img src="IMAGENES/o3.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Diferenciación Celular y Células Madre</h3>
+                <p>Analizamos cómo las células madre pueden transformarse en cualquier tipo de célula. Aprendimos que mediante la comunicación y la activación de genes específicos, se forman tejidos y órganos especializados como las neuronas o el corazón.</p>
+                <img src="IMAGENES/o4.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Recombinación Genética</h3>
+                <p>Esquematizamos cómo los cromosomas intercambian fragmentos de ADN durante la división celular. Aprendimos que este proceso de "mezclar piezas" es lo que genera la diversidad genética, haciendo que cada individuo tenga una combinación única de rasgos.</p>
+                <img src="IMAGENES/o5.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="info">
+                <h3>Leyes de Mendel y Cuadro de Punnett</h3>
+                <p>Revisamos cómo se heredan los rasgos físicos de padres a hijos. Aprendimos a usar los cuadros para predecir las proporciones de las características (fenotipos) y los genes (genotipos) que tendrá la descendencia siguiendo las reglas de la herencia.</p>
+                <img src="IMAGENES/o6.jpeg" onclick="abrirZoom(this.src)">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const imgZoom = document.getElementById('img-zoom');
+
+        function abrirZoom(src) {
+            imgZoom.src = src;
+            overlay.classList.add('active');
+        }
+
+        function cerrarZoom() {
+            overlay.classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>
